@@ -1,0 +1,157 @@
+
+
+#root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  font-family: sofia-pro, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: sofia-pro, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 100px 0 40px;
+}
+
+h2 {
+  font-weight: 400;
+  margin: 50px 0 10px;
+}
+
+p {
+  margin: 0 0 30px 0;
+  font-size: 18px;
+}
+
+code {
+  font-family: input-mono, monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
+
+.menu {
+  filter: drop-shadow(1px 1px 1px #5116a9);
+  width: 300px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--accent);
+}
+
+li {
+  color: var(--background);
+  display: block;
+  transform-origin: -20px 50%;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button path {
+  fill: var(--background);
+}
+
+input {
+  accent-color: var(--accent);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  padding-bottom: 50px;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+input[type="number"] {
+  border: 0;
+  border-bottom: 1px dotted var(--accent);
+  color: var(--accent);
+  margin-left: 10px;
+  background: var(--background);
+  width: 50px;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-bottom: 2px solid var(--accent);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.item {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--background);
+  font-size: 240px;
+  line-height: 260px;
+  font-weight: 700;
+  border-radius: 30px;
+}
