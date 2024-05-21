@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import React, { useState } from 'react';
 import useWrapperAnimation from "../hooks/useWrapperAnimation";
+
+console.log('before loading!!!')
 
 export default function Stagger({staggerName, data}) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useWrapperAnimation( isOpen );
   
-  console.log(data)
+  console.log( 'stagger component loading...', staggerName, data )
 
 
   return (
@@ -16,7 +18,7 @@ export default function Stagger({staggerName, data}) {
         onClick={ () => setIsOpen( !isOpen ) }
         className="bg-cyan-500 flex justify-between items-center my-2 p-3 w-full hover:shadow-md rounded-lg  text-xl text-white"
       >
-        Menu
+        {staggerName}
         <div className="arrow" style={ { transformOrigin: "50% 55%" } }>
           <svg fill="white" width="15" height="15" viewBox="0 0 20 20">
             <path d="M0 7 L 20 7 L 10 16" />
@@ -35,13 +37,15 @@ export default function Stagger({staggerName, data}) {
             <img key={index} className="w-full h-[100px] rounded-md" src={image.src} alt="image?" />
           ))
         } */}
-        {
+        <React.Suspense fallback={<p>loading...</p>}>
+          {
           data && data.map( ( d ) => (
             <li key={ d.id }>
               <img className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px]' src={d.src} alt="" />
             </li>
           ))
         }
+        </React.Suspense>
       </ul>
     </nav>
   );

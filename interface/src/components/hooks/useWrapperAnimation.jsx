@@ -22,7 +22,8 @@ const useWrapperAnimation = (isOpen) => {
         duration: 0.5,
       }
     );
-
+    
+    console.log( scope, animate );
     animate(
       "li",
       isOpen
@@ -35,8 +36,6 @@ const useWrapperAnimation = (isOpen) => {
     );
   }, [isOpen]);
 
-  console.log( scope, animate );
-  
   return scope;
 };
 

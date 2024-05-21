@@ -1,9 +1,11 @@
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from "framer-motion";
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
+import useFetchQuery from './components/hooks/useFetchQuery';
 import AnimationPage from './components/page/AnimationPage';
 import Category from './components/page/Category';
 import Home from './components/page/Home';
+
 
 
 // import * as ReactDOM from "react-dom/client";
@@ -14,7 +16,17 @@ import Home from './components/page/Home';
 
 function App ()
 {
-  const location = useLocation()
+  const { images, error, isLoading } = useFetchQuery();
+  console.log( images, error, isLoading );
+  const location = useLocation();
+
+    if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
   return (
     // <div>
     //   <div className="flex gap-10 justify-center items-center p-10">
@@ -32,20 +44,15 @@ function App ()
     //   </div>
     // </div>
     <>
-      <AnimatePresence mode='wait'>
-        <Routes location={ location } key={ location.key }>
+        <AnimatePresence mode='wait'>
+          <Routes location={ location } key={ location.key }>
 
-          <Route path="/" element={ <Home /> } exact />
+          <Route path="/" element={ <Home data={images} /> } exact />
           <Route path="/animationPage" element={ <AnimationPage /> } />
           <Route path="/category" element={ <Category /> } />
-          {/* <Route path="/ScrollReveal" element={ <ScrollReveal /> } />
-        <Route path="/simple" element={ <Simple /> } />
-        <Route path="/keyFrame" element={ <KeyFrame /> } />
-        <Route path="/buttonTap" element={ <ButtonTap /> } />
-        <Route path="/test" element={ <Test /> } />
-        <Route path="/counter" element={<Counter/>}/> */}
+          
         </Routes>
-      </AnimatePresence>
+        </AnimatePresence>
     </>
   );
 }

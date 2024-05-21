@@ -3,13 +3,11 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Link } from 'react-router-dom';
 import { PuffLoader } from 'react-spinners';
 import ButtonTap from '../ButtonTap';
-import useFetchQuery from '../hooks/useFetchQuery';
 import Stagger from '../stagger/Stagger';
 
-export default function Home ()
+export default function Home ({data})
 {
-    const { images, error, isLoading } = useFetchQuery();
-    console.log( images, error, isLoading );
+   
     
     return (
         <div className="flex justify-center items-center flex-col gap-10 py-10">
@@ -22,7 +20,7 @@ export default function Home ()
                     <ButtonTap text={ 'See category' } />
                 </Link>
             </div>
-            <ErrorBoundary fallback={ <p className="bg-red-500 text-white p-2 rounded-md font-mono">something wrong going on, { !error ? 'this not from data fetching problem': 'component!!' }!!</p> }>
+            <ErrorBoundary fallback={ <p className="bg-red-500 text-white p-2 rounded-md font-mono text-sm">something wrong going wrong!!</p> }>
                 <React.Suspense
                     fallback={ <div className="py-10">
                         <PuffLoader style={ {
@@ -30,10 +28,11 @@ export default function Home ()
                         } } size={ 200 } color="#36d7b7" />
                     </div> }>
                     <div>
-                        <Stagger staggerName={ 'Demo Stager' } data={ images } />
+                        <Stagger staggerName={ 'Demo Stagger' } data={ data } />
                     </div>
                 </React.Suspense>
             </ErrorBoundary>
+           
         </div>
     );
 }
