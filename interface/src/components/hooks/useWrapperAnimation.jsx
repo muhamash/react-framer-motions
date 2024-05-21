@@ -24,7 +24,7 @@ const useWrapperAnimation = (isOpen) => {
     );
 
     animate(
-      "li",
+      "img",
       isOpen
         ? { opacity: 1, scale: 1, filter: "blur(0px)" }
         : { opacity: 0, scale: 0.3, filter: "blur(20px)" },

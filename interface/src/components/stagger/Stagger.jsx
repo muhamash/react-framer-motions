@@ -5,17 +5,17 @@ import useWrapperAnimation from "../hooks/useWrapperAnimation";
 
 export default function Stagger() {
   const [isOpen, setIsOpen] = useState(false);
-  const scope = useWrapperAnimation( isOpen );
+  const ref = useWrapperAnimation( isOpen );
   
   const {images, error, isLoading} = useFetchQuery()
-  // console.log( data );
+  console.log( images, error, isLoading );
 
   return (
-    <nav className="bg-cyan-500 shadow-lg w-1/3 p-4 rounded-md" ref={ scope }>
+    <nav className="w-1/3" ref={ ref }>
       <motion.button
         whileTap={ { scale: 0.97 } }
         onClick={ () => setIsOpen( !isOpen ) }
-        className="bg-[#f0f8ff] flex justify-between items-center my-2 p-3 w-full hover:shadow-md rounded-lg text-sky-700 text-xl"
+        className="bg-cyan-500 flex justify-between items-center my-2 p-3 w-full hover:shadow-md rounded-lg  text-xl text-white"
       >
         Menu
         <div className="arrow" style={ { transformOrigin: "50% 55%" } }>
@@ -25,17 +25,17 @@ export default function Stagger() {
         </div>
       </motion.button>
       <ul
-        className="w-full bg-white"
+        className="w-full bg-cyan-500 flex flex-col gap-5 p-10"
         style={ {
           pointerEvents: isOpen ? "auto" : "none",
           clipPath: "inset(10% 50% 90% 50% round 10px)",
         } }
       >
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
+        {
+          images.map( ( image ) => (
+            <img key={image.id} className="w-full h-[100px] rounded-md" src={image.src} alt="image?" />
+          ))
+        }
       </ul>
     </nav>
   );
