@@ -1,15 +1,12 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 import { stagger, useAnimate } from "framer-motion";
-import React from 'react';
+import { useEffect } from "react";
 
-const staggerMenuItems = stagger( 0.1, { startDelay: 0.2 } );
+const staggerMenuItems = stagger(0.1, { startDelay: 0.2 });
 
-const useWrapperAnimation = ( { isOpen } ) =>
-{
-    const [scope, animate] = useAnimate();
+const useWrapperAnimation = (isOpen) => {
+  const [scope, animate] = useAnimate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     animate(".arrow", { rotate: isOpen ? 180 : 0 }, { duration: 0.2 });
 
     animate(
