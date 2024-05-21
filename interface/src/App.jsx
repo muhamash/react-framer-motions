@@ -2,6 +2,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import AnimationPage from './components/page/AnimationPage';
+import Category from './components/page/Category';
 import Home from './components/page/Home';
 
 
@@ -36,6 +37,7 @@ function App ()
 
           <Route path="/" element={ <Home /> } exact />
           <Route path="/animationPage" element={ <AnimationPage /> } />
+          <Route path="/category" element={ <Category /> } />
           {/* <Route path="/ScrollReveal" element={ <ScrollReveal /> } />
         <Route path="/simple" element={ <Simple /> } />
         <Route path="/keyFrame" element={ <KeyFrame /> } />

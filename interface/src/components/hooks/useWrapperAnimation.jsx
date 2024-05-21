@@ -7,7 +7,7 @@ const useWrapperAnimation = (isOpen) => {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    animate(".arrow", { rotate: isOpen ? 180 : 0 }, { duration: 0.2 });
+    animate(".arrow", { rotate: isOpen ? 180 : 0 }, { duration: 0.3 });
 
     animate(
       "ul",
@@ -24,17 +24,19 @@ const useWrapperAnimation = (isOpen) => {
     );
 
     animate(
-      "img",
+      "li",
       isOpen
         ? { opacity: 1, scale: 1, filter: "blur(0px)" }
-        : { opacity: 0, scale: 0.3, filter: "blur(20px)" },
+        : { opacity: 0, scale: 0.3, filter: "blur(25px)" },
       {
-        duration: 0.2,
+        duration: 0.3,
         delay: isOpen ? staggerMenuItems : 0,
       }
     );
   }, [isOpen]);
 
+  console.log( scope, animate );
+  
   return scope;
 };
 
