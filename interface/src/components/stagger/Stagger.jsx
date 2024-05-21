@@ -1,6 +1,5 @@
 import { motion, stagger, useAnimate } from "framer-motion";
 import { useEffect, useState } from "react";
-import "./style.css";
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -44,10 +43,11 @@ export default function App() {
   const scope = useMenuAnimation(isOpen);
 
   return (
-    <nav className="menu" ref={scope}>
+    <nav className="bg-cyan-500 shadow-lg" ref={scope}>
       <motion.button
         whileTap={{ scale: 0.97 }}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={ () => setIsOpen( !isOpen ) }
+        className='bg-[#f0f8ff] flex  items-center justify-center my-2 px-3'
       >
         Menu
         <div className="arrow" style={{ transformOrigin: "50% 55%" }}>
