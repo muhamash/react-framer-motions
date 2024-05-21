@@ -1,0 +1,32 @@
+{
+    "images": [
+        {
+            "id": "1",
+            "src": "https://cdn.dummyjson.com/product-images/4/2.jpg"
+        },
+        {
+            "id": "2",
+            "src": "https://cdn.dummyjson.com/product-images/5/2.jpg"
+        },
+        {
+            "id": "3",
+            "src": "https://cdn.dummyjson.com/product-images/8/4.jpg"
+        },
+        {
+            "id": "4",
+            "src": "https://cdn.dummyjson.com/product-images/4/2.jpg"
+        },
+        {
+            "id": "5",
+            "src": "https://cdn.dummyjson.com/product-images/9/3.png"
+        },
+        {
+            "id": "6",
+            "src": "https://cdn.dummyjson.com/product-images/10/1.jpg"
+        },
+        {
+            "id": "7",
+            "src": "https://cdn.dummyjson.com/product-images/15/2.jpg"
+        }
+    ]
+}
