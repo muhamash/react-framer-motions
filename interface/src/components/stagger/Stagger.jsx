@@ -7,11 +7,11 @@ export default function Stagger() {
   const scope = useWrapperAnimation(isOpen);
 
   return (
-    <nav className="bg-cyan-500 shadow-lg" ref={ scope }>
+    <nav className="bg-cyan-500 shadow-lg w-1/3 p-4 rounded-md" ref={ scope }>
       <motion.button
         whileTap={ { scale: 0.97 } }
         onClick={ () => setIsOpen( !isOpen ) }
-        className="bg-[#f0f8ff] flex items-center justify-center my-2 px-3"
+        className="bg-[#f0f8ff] flex justify-between items-center my-2 p-3 w-full hover:shadow-md rounded-lg"
       >
         Menu
         <div className="arrow" style={ { transformOrigin: "50% 55%" } }>
@@ -21,6 +21,7 @@ export default function Stagger() {
         </div>
       </motion.button>
       <ul
+        className="w-full bg-white"
         style={ {
           pointerEvents: isOpen ? "auto" : "none",
           clipPath: "inset(10% 50% 90% 50% round 10px)",
