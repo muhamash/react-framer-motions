@@ -1,60 +1,37 @@
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from 'framer-motion';
+import { Suspense, lazy } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import useFetchQuery from './components/hooks/useFetchQuery';
-import AnimationPage from './components/page/AnimationPage';
-import Category from './components/page/Category';
-import Home from './components/page/Home';
 
 
+const Home = lazy(() => import('./components/page/Home'));
+const AnimationPage = lazy(() => import('./components/page/AnimationPage'));
+const Category = lazy(() => import('./components/page/Category'));
 
-// import * as ReactDOM from "react-dom/client";
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-// } from "react-router-dom";
-
-function App ()
-{
+function App() {
   const { images, error, isLoading } = useFetchQuery();
-  console.log( images, error, isLoading );
   const location = useLocation();
 
-    if (isLoading) {
+  if (isLoading) {
     return <p>Loading...</p>;
   }
 
   if (error) {
     return <p>Error: {error}</p>;
   }
-  return (
-    // <div>
-    //   <div className="flex gap-10 justify-center items-center p-10">
-    //     <KeyFrame />
-    //     <Simple />
-    //     <ButtonTap text={ "Tap Me!" } />
-    //     <ButtonTap text={ "Animation Page" } />
-    //     <Test />
-    //   </div>
-    //   <div className='w-fit mx-auto px-10'>
-    //     <Counter />
-    //   </div>
-    //   <div>
-    //     <ScrollReveal/>
-    //   </div>
-    // </div>
-    <>
-        <AnimatePresence mode='wait'>
-          <Routes location={ location } key={ location.key }>
 
-          <Route path="/" element={ <Home data={images} /> } exact />
-          <Route path="/animationPage" element={ <AnimationPage /> } />
-          <Route path="/category" element={ <Category /> } />
-          
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <AnimatePresence mode='wait'>
+        <Routes location={location} key={location.key}>
+          <Route path="/" element={<Home data={images} />} exact />
+          <Route path="/animationPage" element={<AnimationPage />} />
+          <Route path="/category" element={<Category />} />
         </Routes>
-        </AnimatePresence>
-    </>
+      </AnimatePresence>
+    </Suspense>
   );
 }
 
-export default App
+export default App;
