@@ -1,12 +1,22 @@
 const express = require('express');
+const cors = require('cors'); // Import the cors package
 const fs = require('fs');
 const path = require('path');
 const app = express();
 const port = 3001;
 
+app.use( cors() );//  the cors middleware
+
 app.get( '/', ( req, res ) =>
 {
   res.send( 'Hello, welcome to the stagger server!' );
+} );
+
+
+app.use( ( req, res, next ) =>
+{
+  console.log( `${req.method} request for '${req.url}'` );
+  next();
 } );
 
 app.get( '/image', ( req, res ) =>
