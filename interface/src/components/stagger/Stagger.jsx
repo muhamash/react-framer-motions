@@ -34,7 +34,7 @@ export default function Stagger({staggerName, data}) {
         </div>
       </motion.button>
       <ul
-        className="w-full bg-cyan-500 flex flex-col gap-5 p-5"
+        className={`w-full bg-cyan-500 flex flex-col gap-5 p-5 ${isOpen? " ": "hidden"}`}
         style={ {
           pointerEvents: isOpen ? "auto" : "none",
           clipPath: "inset(10% 50% 90% 50% round 10px)",
