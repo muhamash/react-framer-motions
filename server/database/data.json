@@ -28,5 +28,31 @@
             "id": "7",
             "src": "https://cdn.dummyjson.com/product-images/15/2.jpg"
         }
+    ],
+    "linkData": [
+        {
+            "id": "1",
+            "link": "keyframe"
+        },
+        {
+            "id": "2",
+            "link": "test"
+        },
+        {
+            "id": "3",
+            "link": "simple"
+        },
+        {
+            "id": "4",
+            "link": "buttonTap"
+        },
+        {
+            "id": "5",
+            "link": "counter"
+        },
+        {
+            "id": "6",
+            "link": "scrollReveal"
+        }
     ]
 }
