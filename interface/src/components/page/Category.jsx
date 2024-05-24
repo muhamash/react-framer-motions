@@ -1,18 +1,26 @@
 import React from 'react';
 // import Outlet from '../layout/Outlet'
 import { Outlet } from "react-router-dom";
+import Stagger from '../stagger/Stagger';
 
 
-export default function Category() {
+export default function Category({data}) {
   return (
-    <div>
-      <div>
-        hello
+    <div >
+      <div className="relative py-20">
+        <div className=" absolute top-[10%] left-[40%]">
+          <Stagger staggerName={ "Category List" } data={ data } />
+        </div>
       </div>
-      <hr className="bg-violet-300 p-[0.6px]" />
+      <div className="">
+        <hr className="bg-violet-300 p-[0.6px]" />
+      </div>
       <div>
-        <Outlet/>
+        <div>
+           
+          <Outlet />
+        </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const retrieveData = async (url) => {
-    try {
-        const response = await axios.get(url);
+const retrieveData = async (endPoint) => {
+    try
+    {
+        console.log(`api request fot http://localhost:3000/${endPoint}`)
+        const response = await axios.get(`http://localhost:3000/${endPoint}`);
         if (response.status === 200) {
             console.log(response);
             return response.data;
@@ -15,9 +17,9 @@ const retrieveData = async (url) => {
 
 export default function useFetchQuery({
     queryKey = [],
-    url = 'http://localhost:3000/default-endpoint',
-    staleTime = 30000,
-    cacheTime = 200000,
+    url = 'default-endpoint',
+    staleTime = 3000,
+    cacheTime = 2000,
     retry = 3,
     retryDelay = 1000,
     refetchOnWindowFocus = true,
@@ -36,15 +38,12 @@ export default function useFetchQuery({
     const { data, error, isLoading } = useQuery( {
         queryKey,
         queryFn: () => retrieveData( url ),
-        staleTime,
-        cacheTime,
-        retry,
-        retryDelay,
-        refetchOnWindowFocus,
-        refetchInterval,
-        onError,
-        onSuccess,
-        onSettled,
+        // staleTime,
+        // cacheTime,
+        // retry,
+        // retryDelay,
+        // refetchOnWindowFocus,
+        // refetchInterval,
     } );
 
     return { data, error, isLoading };

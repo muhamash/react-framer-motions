@@ -11,24 +11,22 @@ const Category = lazy(() => import('./components/page/Category'));
 function App() {
   const { data: images, error: imagesError, isLoading: imagesLoading } = useFetchQuery( {
     queryKey: [ 'images' ],
-    url: 'http://localhost:3000/images',
-    staleTime: 60000,
-    cacheTime: 300000,
-    retry: 5,
-    retryDelay: 2000,
-    refetchOnWindowFocus: false,
-    onError: ( error ) =>
-    {
-      console.error( "Custom error handler for images:", error );
-    },
-    onSuccess: ( data ) =>
-    {
-      console.log( "Custom success handler for images:", data );
-    },
-    onSettled: ( data, error ) =>
-    {
-      console.log( "Custom settled handler for images:", { data, error } );
-    },
+    url: 'images',
+    // staleTime: 60000,
+    // cacheTime: 300000,
+    // retry: 5,
+    // retryDelay: 2000,
+    // refetchOnWindowFocus: false,
+  } );
+
+  const { data: linkData } = useFetchQuery( {
+    queryKey: [ 'linkData' ],
+    url: 'linkData',
+    // staleTime: 60000,
+    // cacheTime: 300000,
+    // retry: 5,
+    // retryDelay: 2000,
+    // refetchOnWindowFocus: false,
   } );
 
   const location = useLocation();
@@ -47,7 +45,7 @@ function App() {
         <Routes location={location} key={location.key}>
           <Route path="/" element={<Home data={images} />} exact />
           <Route path="/animationPage" element={<AnimationPage />} />
-          <Route path="/category" element={<Category />} />
+          <Route path="/category" element={ <Category data={ linkData } />} />
         </Routes>
       </AnimatePresence>
     </Suspense>
