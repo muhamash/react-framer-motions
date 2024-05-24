@@ -5,6 +5,9 @@ import './App.css';
 import ButtonTap from './components/ButtonTap';
 import useFetchQuery from './components/hooks/useFetchQuery';
 import KeyFrame from './components/KeyFrame';
+import Counter from './components/motionValue/Counter';
+import ScrollReveal from './components/Scroll/ScrollReveal';
+import Simple from './components/Simple';
 import Test from './components/Test';
 
 const Home = lazy(() => import('./components/page/Home'));
@@ -51,10 +54,11 @@ function App() {
           <Route path="/category" element={ <Category data={ linkData } /> }>
             <Route path="keyFrame" element={ <KeyFrame /> } />
             <Route path="buttonTap" element={ <ButtonTap /> } />
-            <Route path="" element={ <ButtonTap /> } />
+            <Route path="counter" element={ <Counter /> } />
             <Route path="test" element={ <Test/> } />
-            <Route path="simple" element={ <simple /> } />
-            <Route path="buttonTap" element={ <ButtonTap /> } />
+            <Route path="simple" element={ <Simple /> } />
+            <Route path="counter" element={ <Counter /> } />
+            <Route path="scrollReveal" element={ <ScrollReveal/>} />
           </Route>
 
         </Routes>
