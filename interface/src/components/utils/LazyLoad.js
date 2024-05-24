@@ -2,7 +2,7 @@
 import React from 'react';
 
 export default function LazyImport(file) {
-    return React.lazy( () => import( `../components/${file}` )
+    return React.lazy( () => import( `../../components/${file}` )
         .then( ( module ) =>
         {
             if ( module && module.default )

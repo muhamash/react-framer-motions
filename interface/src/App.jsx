@@ -2,18 +2,23 @@ import { AnimatePresence } from 'framer-motion';
 import { Suspense, lazy } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
-import ButtonTap from './components/ButtonTap';
+// import ButtonTap from './components/ButtonTap';
 import useFetchQuery from './components/hooks/useFetchQuery';
-import KeyFrame from './components/KeyFrame';
-import Counter from './components/motionValue/Counter';
-import ScrollReveal from './components/Scroll/ScrollReveal';
+// import KeyFrame from './components/KeyFrame';
+// import Counter from './components/motionValue/Counter';
+// import ScrollReveal from './components/Scroll/ScrollReveal';
 // import Simple from './components/Simple';
-import Test from './components/Test';
+// import Test from './components/Test';
 
 const Home = lazy(() => import('./components/page/Home'));
 const AnimationPage = lazy( () => import( './components/page/AnimationPage' ) );
 const Category = lazy( () => import( './components/page/Category' ) );
 const Simple = lazy( () => import( './components/Simple' ) );
+const ScrollReveal = lazy( () => import( './components/Scroll/ScrollReveal' ) )
+const Counter = lazy( () => import( './components/motionValue/Counter' ) )
+const KeyFrame = lazy( () => import( './components/KeyFrame' ) );
+const ButtonTap = lazy( () => import( './components/ButtonTap' ) );
+const Test = lazy(()=> import('./components/Test.jsx'))
 
 function App() {
   const { data: images, error: imagesError, isLoading: imagesLoading } = useFetchQuery( {
