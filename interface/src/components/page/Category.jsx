@@ -17,7 +17,6 @@ export default function Category({data}) {
       </div>
       <div>
         <div>
-           
           <Outlet />
         </div>
       </div>

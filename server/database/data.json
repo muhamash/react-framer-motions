@@ -32,27 +32,33 @@
     "linkData": [
         {
             "id": "1",
-            "link": "keyframe"
+            "link": "Keyframe",
+            "to": "/Keyframe"
         },
         {
             "id": "2",
-            "link": "test"
+            "link": "Test",
+            "to": "/test"
         },
         {
             "id": "3",
-            "link": "simple"
+            "link": "Simple",
+            "to": "simple"
         },
         {
             "id": "4",
-            "link": "buttonTap"
+            "link": "ButtonTap",
+            "to": "buttonTap"
         },
         {
             "id": "5",
-            "link": "counter"
+            "link": "Counter",
+            "to": "/counter"
         },
         {
             "id": "6",
-            "link": "scrollReveal"
+            "link": "ScrollReveal",
+            "to": "scrollReavel"
         }
     ]
 }

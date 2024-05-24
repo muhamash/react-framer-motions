@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import useWrapperAnimation from "../hooks/useWrapperAnimation";
 
 console.log('before loading!!!')
@@ -14,6 +15,13 @@ export default function Stagger({staggerName, data}) {
   return (
     <nav className="w-[400px]" ref={ ref }>
       <motion.button
+        exit={ {
+          x: 1200,
+          transition: {
+            duration: 0.6,
+            ease: 'easeInOut',
+          }
+        }}
         whileTap={ { scale: 0.97 } }
         onClick={ () => setIsOpen( !isOpen ) }
         className="bg-cyan-500 flex justify-between items-center my-2 p-3 w-full hover:shadow-md rounded-lg  text-xl text-white"
@@ -40,14 +48,16 @@ export default function Stagger({staggerName, data}) {
         <React.Suspense fallback={<p>loading...</p>}>
           {
           data && data.map( ( d ) => (
-            <li key={ d.id }>
+            <li key={ d.index }>
               {/* <img className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px]' src={d.src} alt="" /> */ }
               {
                 staggerName === 'Demo Stagger' ? (
-                  <img className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px]' src={d.src} alt="" />
+                  <img onClick={()=>setIsOpen(false)} className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px] cursor-pointer' src={d.src} alt="" />
                 ) :
                   (
-                    <p>djhfg</p>
+                    <Link to={d.to} onClick={()=>setIsOpen(false)}>
+                      <p className="bg-sky-500 p-2 border border-sky-900 rounded-md shadow-md text-white text-center">{d.link}</p>
+                    </Link>
                   )
               }
             </li>
