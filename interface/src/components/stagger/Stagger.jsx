@@ -41,7 +41,15 @@ export default function Stagger({staggerName, data}) {
           {
           data && data.map( ( d ) => (
             <li key={ d.id }>
-              <img className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px]' src={d.src} alt="" />
+              {/* <img className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px]' src={d.src} alt="" /> */ }
+              {
+                staggerName === 'Demo Stagger' ? (
+                  <img className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px]' src={d.src} alt="" />
+                ) :
+                  (
+                    <p>djhfg</p>
+                  )
+              }
             </li>
           ))
         }
