@@ -7,12 +7,13 @@ import useFetchQuery from './components/hooks/useFetchQuery';
 import KeyFrame from './components/KeyFrame';
 import Counter from './components/motionValue/Counter';
 import ScrollReveal from './components/Scroll/ScrollReveal';
-import Simple from './components/Simple';
+// import Simple from './components/Simple';
 import Test from './components/Test';
 
 const Home = lazy(() => import('./components/page/Home'));
-const AnimationPage = lazy(() => import('./components/page/AnimationPage'));
-const Category = lazy(() => import('./components/page/Category'));
+const AnimationPage = lazy( () => import( './components/page/AnimationPage' ) );
+const Category = lazy( () => import( './components/page/Category' ) );
+const Simple = lazy( () => import( './components/Simple' ) );
 
 function App() {
   const { data: images, error: imagesError, isLoading: imagesLoading } = useFetchQuery( {
