@@ -1,5 +1,6 @@
 import React from 'react';
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import ButtonTap from '../ButtonTap';
 import Stagger from '../stagger/Stagger';
 
 export default function Category({data}) {
@@ -9,6 +10,9 @@ export default function Category({data}) {
         <div className=" absolute top-[10%] left-[40%]">
           <Stagger staggerName={ "Category List" } data={ data } />
         </div>
+        <Link className="p-5" to="/">
+          <ButtonTap text="Home"/>
+        </Link>
       </div>
       <div className="">
         <hr className="bg-violet-300 p-[0.6px]" />
