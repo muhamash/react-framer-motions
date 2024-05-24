@@ -1,8 +1,6 @@
 import React from 'react';
-// import Outlet from '../layout/Outlet'
 import { Outlet } from "react-router-dom";
 import Stagger from '../stagger/Stagger';
-
 
 export default function Category({data}) {
   return (
@@ -15,7 +13,7 @@ export default function Category({data}) {
       <div className="">
         <hr className="bg-violet-300 p-[0.6px]" />
       </div>
-      <div>
+      <div className="flex items-center justify-center py-10">
         <div>
           <Outlet />
         </div>

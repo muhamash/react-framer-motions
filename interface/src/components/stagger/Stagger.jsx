@@ -55,8 +55,8 @@ export default function Stagger({staggerName, data}) {
                   <img onClick={()=>setIsOpen(false)} className='w-full hover:shadow-md hover:scale-105 transition-all duration-200 rounded-md h-[100px] cursor-pointer' src={d.src} alt="" />
                 ) :
                   (
-                    <Link to={d.to} onClick={()=>setIsOpen(false)}>
-                      <p className="bg-sky-500 p-2 border border-sky-900 rounded-md shadow-md text-white text-center">{d.link}</p>
+                    <Link to={`${d.to}`} onClick={()=>setIsOpen(false)}>
+                      <p className="bg-sky-500 cursor-pointer p-2 border border-sky-900 rounded-md shadow-md text-white text-center">{d.link}</p>
                     </Link>
                   )
               }

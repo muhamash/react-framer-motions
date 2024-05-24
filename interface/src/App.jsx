@@ -2,7 +2,10 @@ import { AnimatePresence } from 'framer-motion';
 import { Suspense, lazy } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
+import ButtonTap from './components/ButtonTap';
 import useFetchQuery from './components/hooks/useFetchQuery';
+import KeyFrame from './components/KeyFrame';
+import Test from './components/Test';
 
 const Home = lazy(() => import('./components/page/Home'));
 const AnimationPage = lazy(() => import('./components/page/AnimationPage'));
@@ -40,12 +43,20 @@ function App() {
   }
 
   return (
-    <Suspense fallback={<p>Loading page...</p>}>
+    <Suspense fallback={ <p>Loading page...</p> }>
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.key}>
-          <Route path="/" element={<Home data={images} />} exact />
-          <Route path="/animationPage" element={<AnimationPage />} />
-          <Route path="/category" element={ <Category data={ linkData } />} />
+        <Routes location={ location } key={ location.key }>
+          <Route path="/" element={ <Home data={ images } /> } exact />
+          <Route path="/animationPage" element={ <AnimationPage /> } />
+          <Route path="/category" element={ <Category data={ linkData } /> }>
+            <Route path="keyFrame" element={ <KeyFrame /> } />
+            <Route path="buttonTap" element={ <ButtonTap /> } />
+            <Route path="" element={ <ButtonTap /> } />
+            <Route path="test" element={ <Test/> } />
+            <Route path="simple" element={ <simple /> } />
+            <Route path="buttonTap" element={ <ButtonTap /> } />
+          </Route>
+
         </Routes>
       </AnimatePresence>
     </Suspense>

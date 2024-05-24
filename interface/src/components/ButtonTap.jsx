@@ -21,6 +21,6 @@ export default function ButtonTap({text}) {
         }
       } }
     //   transition={{ duration: 5}}
-    >{ text }</motion.button>
+    >{ text ? text : "Demo button" }</motion.button>
   );
 }

@@ -33,12 +33,12 @@
         {
             "id": "1",
             "link": "Keyframe",
-            "to": "/Keyframe"
+            "to": "Keyframe"
         },
         {
             "id": "2",
             "link": "Test",
-            "to": "/test"
+            "to": "test"
         },
         {
             "id": "3",
@@ -53,12 +53,12 @@
         {
             "id": "5",
             "link": "Counter",
-            "to": "/counter"
+            "to": "counter"
         },
         {
             "id": "6",
             "link": "ScrollReveal",
-            "to": "scrollReavel"
+            "to": "scrollReveal"
         }
     ]
 }
